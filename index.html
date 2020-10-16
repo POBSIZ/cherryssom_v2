@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Cherryssom</title>
+</head>
+<body>
+    <div class="container">
+        <div id="head_title">
+            <!-- Head -->
+            <a href=""><img id="logo" src="design_src/1d213a3fb966034d.png" alt="LOGO"></a>
+            <input type="text" name="" id="search">
+            <span id="register">
+                <span>로그인</span>
+                <span>회원가입</span>
+            </span>
+        </div>
+    
+        <div id="top_menu">
+            <!-- Top_menu -->
+            <img src="src/menu.png" alt="menu_btn" id="m_btn">
+            <span id="menu_list">
+                <a href="pages/popular_P.html" class="m1">카테고리</a>
+                <a href="" class="m2">홈</a>
+                <a href="pages/popular_P.html" class="m3">인기상품</a>
+                <a href="pages/popular_P.html" class="m4">제품후기</a>
+                <a href="pages/popular_P.html" class="m5">본사소개</a>
+            </span>
+        </div>
+    
+        <div id="banner">
+            <div id="banner_btn">
+                <button onclick="s_prev();">prev</button>
+                <button onclick="s_next();">next</button>
+                <button onclick="s_stop();">stop</button>
+                <button onclick="s_play();">play</button>
+            </div>
+            <div id="slider">
+                <div class="ban_img">1</div>
+                <div class="ban_img">2</div>
+                <div class="ban_img">3</div>
+                <div class="ban_img">4</div>
+            </div>
+        </div>
+        <script id="slider_script">
+            const SHOWING_CLASS = "show";
+            const firstSlide = document.querySelector(".ban_img:first-child");
+            // const nextSlide = currentSlide.nextElementSibling;
+            // const prevSlide =  currentSlide.previousElementSibling;
+            var dsad = 0;
+            var slide_T = 2000;
+            var banner_num = 1;
+            var currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
+
+            const Slide = () => {
+                currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
+                if (currentSlide) {
+                    currentSlide.classList.remove(SHOWING_CLASS);
+                    var nextSlide = currentSlide.nextElementSibling;
+                    if (nextSlide) {
+                    nextSlide.classList.add(SHOWING_CLASS);
+                    } else {
+                    firstSlide.classList.add(SHOWING_CLASS);
+                    }
+                } else {
+                    firstSlide.classList.add(SHOWING_CLASS);
+                }
+            };
+            var autoSlide = setInterval(Slide, slide_T);
+
+            function s_next(){
+                currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
+                currentSlide.classList.remove(SHOWING_CLASS);
+                nextSlide = currentSlide.nextElementSibling;
+                console.log("next");
+            }
+            function s_prev(){
+                currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
+                currentSlide.classList.remove(SHOWING_CLASS);
+                const prevSlide =  currentSlide.previousElementSibling;
+                console.log("prev");
+            }
+            function s_stop(){
+                clearInterval(autoSlide);
+                console.log("stop");
+            }
+            function s_play(){
+                // setInterval(Slide, slide_T); // has some err
+                console.log("play");
+            }
+
+        </script>
+    
+        <div id="content_1">
+            <div id="c1_itm1">
+                <span class="c1_p_name">체리썸 플리스백</span>
+                <span class="c1_p_price">100&#8361;</span>
+                <div id="c1_itm2">
+                    <span class="c1_p_name">체리썸 플리스백</span>
+                    <span class="c1_p_price">100&#8361;</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="content_2">
+            <div id="c2_itm1">
+                <div id="c2_itm2">
+                    <span>CHERRYSSOM</span>
+                    <p>
+                        모든 아이디어는 내가 필요한 것부터 시작된다<br>
+                        평소에 있었으면 좋겠던 아이디어, <br>
+                        내가 갖고싶었던 디자인의 악세사리들이<br> 
+                        원동력이 되어 아이디어를 만들어 갑니다<br>
+                    </p>
+                </div>
+                <div id="c2_itm3"></div>
+            </div>
+        </div>
+    
+        <div id="footer">
+            <!-- Footer -->
+        </div>
+    </div>
+</body>
+</html>
