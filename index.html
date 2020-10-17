@@ -60,8 +60,12 @@
                 if (currentSlide) {
                     currentSlide.classList.remove(SHOWING_CLASS);
                     var nextSlide = currentSlide.nextElementSibling;
+                    if(banner_num == 5){
+                        banner_num = 1;
+                    }
                     if (nextSlide) {
                     nextSlide.classList.add(SHOWING_CLASS);
+                    banner_num += 1;
                     } else {
                     firstSlide.classList.add(SHOWING_CLASS);
                     }
