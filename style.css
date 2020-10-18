@@ -10,7 +10,7 @@ body{
     bottom: 0;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 100px 50px 850px 700px 700px 300px;
+    grid-template-rows: 100px 50px 800px 700px 700px 300px;
     grid-gap: 0;
     height: 2700px;
     grid-template-areas: 
@@ -52,7 +52,7 @@ body{
     background-position: 0% 30%;
     background-repeat: no-repeat;
     /* top: 0; */
-    height: 850px;
+    height: 800px;
     width: 100%;
     z-index: 2;
     opacity: 0;
@@ -68,6 +68,8 @@ body{
     transform: scale(1);
 }
 #banner_btn{
+    display: inline-block;
+    position: absolute;
     z-index: 90;
 }
 

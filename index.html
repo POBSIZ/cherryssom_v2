@@ -48,26 +48,23 @@
         <script id="slider_script">
             const SHOWING_CLASS = "show";
             const firstSlide = document.querySelector(".ban_img:first-child");
-            // const nextSlide = currentSlide.nextElementSibling;
-            // const prevSlide =  currentSlide.previousElementSibling;
-            var dsad = 0;
             var slide_T = 2000;
             var banner_num = 1;
             var currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
+            var nextSlide = document.querySelector(".ban_img:nth-child("+ (banner_num+1) +")");
+            var prevSlide = document.querySelector(".ban_img:nth-child("+ (banner_num-1) +")");
 
             const Slide = () => {
                 currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
+                nextSlide = document.querySelector(".ban_img:nth-child("+ (banner_num+1) +")");
                 if (currentSlide) {
-                    if(banner_num > 3){
-                        banner_num = 1;
-                    }   
                     currentSlide.classList.remove(SHOWING_CLASS);
-                    var nextSlide = currentSlide.nextElementSibling;
                     if (nextSlide) {
-                    nextSlide.classList.add(SHOWING_CLASS);
-                    banner_num += 1;
+                        nextSlide.classList.add(SHOWING_CLASS);
+                        banner_num += 1;
                     } else {
-                    firstSlide.classList.add(SHOWING_CLASS);
+                        banner_num = 1;
+                        firstSlide.classList.add(SHOWING_CLASS);
                     }
                 } else {
                     firstSlide.classList.add(SHOWING_CLASS);
@@ -76,37 +73,35 @@
             var autoSlide = setInterval(Slide, slide_T);
 
             function s_next(){
+                currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
+                currentSlide.classList.remove(SHOWING_CLASS);
                 if(banner_num > 3){
                     banner_num = 1;
-                    document.querySelector(".ban_img:first-child").classList.add(SHOWING_CLASS);
+                    document.querySelector(".ban_img:nth-child(1)").classList.add(SHOWING_CLASS);
                 }else{
-                    currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
-                    currentSlide.classList.remove(SHOWING_CLASS);
                     nextSlide = document.querySelector(".ban_img:nth-child("+ (banner_num+1) +")");
                     nextSlide.classList.add(SHOWING_CLASS);
                     banner_num += 1;
                 }
-                console.log("next");
             }
             function s_prev(){
-                if(banner_num > 3){
-                    banner_num = 1;
-                    document.querySelector(".ban_img:first-child").classList.add(SHOWING_CLASS);
+                currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
+                currentSlide.classList.remove(SHOWING_CLASS);
+                if(banner_num < 2){
+                    banner_num = 4;
+                    document.querySelector(".ban_img:nth-child(4)").classList.add(SHOWING_CLASS);
                 }else{
-                    currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
-                    currentSlide.classList.remove(SHOWING_CLASS);
                     prevSlide = document.querySelector(".ban_img:nth-child("+ (banner_num-1) +")");
                     prevSlide.classList.add(SHOWING_CLASS);
                     banner_num -= 1;
                 }
-                console.log("prev");
             }
             function s_stop(){
                 clearInterval(autoSlide);
                 console.log("stop");
             }
             function s_play(){
-                // setInterval(Slide, slide_T); // has some err
+                autoSlide = setInterval(Slide, slide_T); 
                 console.log("play");
             }
 
