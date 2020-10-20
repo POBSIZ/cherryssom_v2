@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8f489167ce.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="popular_PS.css">
     <title>Cherryssom</title>
 </head>
@@ -23,11 +24,13 @@
             <!-- Top_menu -->
             <img src="../src/menu.png" alt="menu_btn" id="m_btn">
             <span id="menu_list">
-                <a href="popular_P.html" class="m1">카테고리</a>
-                <a href="../index.html" class="m2">홈</a>
-                <a href="popular_P.html" class="m3">인기상품</a>
-                <a href="popular_P.html" class="m4">제품후기</a>
-                <a href="popular_P.html" class="m5">본사소개</a>
+                <nav>
+                    <a href="popular_P.html" class="m1">카테고리</a>
+                    <a href="../index.html" class="m2">홈</a>
+                    <a href="popular_P.html" class="m3">인기상품</a>
+                    <a href="popular_P.html" class="m4">제품후기</a>
+                    <a href="popular_P.html" class="m5">본사소개</a>
+                </nav>
             </span>
         </div>
 
@@ -77,11 +80,15 @@
                 </div>
             </div>
             <div id="page_num">
-                <button id="previous_page" onclick="previous();"><img src="../src/next.png" alt=""></button>
+                <a id="previous_page" href="javascript:void(0);" onclick="previous()">
+                    <i class="fas fa-angle-left fa-3x"></i>
+                </a>
                 <span style="font-weight: 500;"><a href="">1</a></span>
                 <span><a href="">2</a></span>
                 <span><a href="">3</a></span>
-                <button id="next_page" onclick="next()"><img src="../src/next.png" alt=""></button>
+                <a id="next_page" href="javascript:void(0);" onclick="next()">
+                    <i class="fas fa-angle-right fa-3x"></i>
+                </a>
             </div>
             <script>
                 var nextBtn = document.querySelector('#page_num ')

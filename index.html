@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8f489167ce.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <title>Cherryssom</title>
 </head>
@@ -23,26 +24,39 @@
             <!-- Top_menu -->
             <img src="src/menu.png" alt="menu_btn" id="m_btn">
             <span id="menu_list">
-                <a href="pages/popular_P.html" class="m1">카테고리</a>
-                <a href="" class="m2">홈</a>
-                <a href="pages/popular_P.html" class="m3">인기상품</a>
-                <a href="pages/popular_P.html" class="m4">제품후기</a>
-                <a href="pages/popular_P.html" class="m5">본사소개</a>
+                <nav>
+                    <a href="pages/popular_P.html" class="m1">카테고리</a>
+                    <a href="" class="m2">홈</a>
+                    <a href="pages/popular_P.html" class="m3">인기상품</a>
+                    <a href="pages/popular_P.html" class="m4">제품후기</a>
+                    <a href="pages/popular_P.html" class="m5">본사소개</a>
+                </nav>
             </span>
         </div>
     
         <div id="banner">
             <div id="banner_btn">
-                <button onclick="s_prev();">prev</button>
-                <button onclick="s_next();">next</button>
-                <button onclick="s_stop();">stop</button>
-                <button onclick="s_play();">play</button>
+                <a id="s_prev" href="javascript:void(0);" onclick="s_prev()">
+                    <i class="fas fa-angle-left fa-5x"></i>
+                </a>
+                <a id="s_next" href="javascript:void(0);" onclick="s_next()">
+                    <i class="fas fa-angle-right fa-5x"></i>
+                </a>
             </div>
             <div id="slider">
-                <div class="ban_img">1</div>
-                <div class="ban_img">2</div>
-                <div class="ban_img">3</div>
-                <div class="ban_img">4</div>
+                <div class="ban_img"></div>
+                <div class="ban_img"></div>
+                <div class="ban_img"></div>
+                <div class="ban_img"></div>
+            </div>
+            <div id="slide_num">
+                <a id="s_playB" style="display: none;" class="slide_controll" href='javascript:void(0);' onclick="s_play();">
+                    <i class="fas fa-play"></i>
+                </a>
+                <a id="s_stopB" style="display: inline-block;" class="slide_controll" href='javascript:void(0);' onclick="s_stop();">
+                    <i class="fas fa-pause"></i>
+                </a>
+                <span id="fore_num">1</span> / <span id="sum_num">4</span>
             </div>
         </div>
         <script id="slider_script">
@@ -53,6 +67,7 @@
             var currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
             var nextSlide = document.querySelector(".ban_img:nth-child("+ (banner_num+1) +")");
             var prevSlide = document.querySelector(".ban_img:nth-child("+ (banner_num-1) +")");
+            var slide_num = document.querySelector("#fore_num");
 
             const Slide = () => {
                 currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
@@ -62,8 +77,10 @@
                     if (nextSlide) {
                         nextSlide.classList.add(SHOWING_CLASS);
                         banner_num += 1;
+                        slide_num.innerHTML = `<span>${banner_num}</span>`;
                     } else {
                         banner_num = 1;
+                        slide_num.innerHTML = `<span>${banner_num}</span>`;
                         firstSlide.classList.add(SHOWING_CLASS);
                     }
                 } else {
@@ -77,11 +94,13 @@
                 currentSlide.classList.remove(SHOWING_CLASS);
                 if(banner_num > 3){
                     banner_num = 1;
+                    slide_num.innerHTML = `<span>${banner_num}</span>`;
                     document.querySelector(".ban_img:nth-child(1)").classList.add(SHOWING_CLASS);
                 }else{
                     nextSlide = document.querySelector(".ban_img:nth-child("+ (banner_num+1) +")");
                     nextSlide.classList.add(SHOWING_CLASS);
                     banner_num += 1;
+                    slide_num.innerHTML = `<span>${banner_num}</span>`;
                 }
             }
             function s_prev(){
@@ -89,22 +108,30 @@
                 currentSlide.classList.remove(SHOWING_CLASS);
                 if(banner_num < 2){
                     banner_num = 4;
+                    slide_num.innerHTML = `<span>${banner_num}</span>`;
                     document.querySelector(".ban_img:nth-child(4)").classList.add(SHOWING_CLASS);
                 }else{
                     prevSlide = document.querySelector(".ban_img:nth-child("+ (banner_num-1) +")");
                     prevSlide.classList.add(SHOWING_CLASS);
                     banner_num -= 1;
+                    slide_num.innerHTML = `<span>${banner_num}</span>`;
                 }
             }
+
+            var s_playB =  document.getElementById("s_playB");
+            var s_stopB =  document.getElementById("s_stopB");
             function s_stop(){
-                clearInterval(autoSlide);
+                clearInterval(autoSlide); 
+                s_stopB.style.display="none";
+                s_playB.style.display="inline-block";
                 console.log("stop");
             }
             function s_play(){
                 autoSlide = setInterval(Slide, slide_T); 
+                s_playB.style.display="none";
+                s_stopB.style.display="inline-block";
                 console.log("play");
             }
-
         </script>
     
         <div id="content_1">

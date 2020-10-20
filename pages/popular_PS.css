@@ -66,15 +66,16 @@ body{
     width: 30px;
     padding-left: 10px;
 }
-#menu_list{
+#menu_list nav{
     position: relative;
     padding-left: 10%;
+    bottom: 25px;
 }
-#menu_list a{   
+#menu_list nav a{   
     text-decoration: none;
     color: white;
     transition: .3s;
-}#menu_list a:hover{
+}#menu_list nav a:hover{
     color: #a04747;
     transition: .3s;
 }
@@ -200,16 +201,19 @@ body{
     transition: .3s;
 }
 #previous_page{
-    transform-origin:50% 50%;
-    transform:rotate(180deg);
-}#previous_page:active{
-    box-shadow: inset #a36c6c -5px -5px 5px;
+    color: #ff5353;
+    position: relative;
+    left: -10px;
+    padding-left: 10px;
     transition: .3s;
-}
-#next_page:active{
-    box-shadow: inset #a36c6c 5px 5px 5px;
+}#previous_page:active{color: #ffc7c7;}
+#next_page{
+    color: #ff5353;
+    position: relative;
+    left: 10px;
+    padding-right: 10px;
     transition: .3s;
-}
+}#next_page:active{color: #ffbebe;}
 #page_num span{
     font-size: 20px;
     position: relative;
