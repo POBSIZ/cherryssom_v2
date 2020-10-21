@@ -1,13 +1,14 @@
 body{
     font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
 }
 .container{
-    position: absolute;
     overflow: hidden;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 100px 50px 1500px 300px;
@@ -79,26 +80,11 @@ body{
     color: #a04747;
     transition: .3s;
 }
-.m1{
-    position: relative;
-    left: 10%;
-}
-.m2{
-    position: relative;
-    left: 20%;
-}
-.m3{
-    position: relative;
-    left: 30%;
-}
-.m4{
-    position: relative;
-    left: 40%;
-}
-.m5{
-    position: relative;
-    left: 50%;
-}
+.m1{position: relative; left: 10%;}
+.m2{position: relative; left: 20%;}
+.m3{position: relative; left: 30%;}
+.m4{position: relative; left: 40%;}
+.m5{position: relative; left: 50%;}
 
 #content_1{
     grid-area: content_1;
@@ -186,19 +172,11 @@ body{
     transform: translateX(-50%);
     left: 50%;   
     transition: .3s;
+    font-weight: 300;
 }
-#page_num button{
-    outline: none;
-    border: none;
-    background-color: #ffffff;
-    border-radius: 40px 40px 40px 40px;
-}#page_num button img{
-    height: 30px;
-    transition: .3s;
-}
-#page_num button:hover{
-    background-color: #ffa0a0;
-    transition: .3s;
+.num_itm{}
+.this_page{
+    font-weight: 500;
 }
 #previous_page{
     color: #ff5353;

@@ -15,8 +15,12 @@
             <a href=""><img id="logo" src="design_src/1d213a3fb966034d.png" alt="LOGO"></a>
             <input type="text" name="" id="search">
             <span id="register">
-                <span>로그인</span>
-                <span>회원가입</span>
+                <a href="">
+                    <span>로그인 </span>
+                </a>
+                <a href="">
+                    <span> 회원가입</span>
+                </a>
             </span>
         </div>
     
@@ -37,11 +41,9 @@
         <div id="banner">
             <div id="banner_btn">
                 <a id="s_prev" href="javascript:void(0);" onclick="s_prev()">
-                    <i class="fas fa-angle-left fa-5x"></i>
-                </a>
+                    <i class="fas fa-angle-left fa-5x"></i></a>
                 <a id="s_next" href="javascript:void(0);" onclick="s_next()">
-                    <i class="fas fa-angle-right fa-5x"></i>
-                </a>
+                    <i class="fas fa-angle-right fa-5x"></i></a>
             </div>
             <div id="slider">
                 <div class="ban_img"></div>
@@ -59,80 +61,7 @@
                 <span id="fore_num">1</span> / <span id="sum_num">4</span>
             </div>
         </div>
-        <script id="slider_script">
-            const SHOWING_CLASS = "show";
-            const firstSlide = document.querySelector(".ban_img:first-child");
-            var slide_T = 2000;
-            var banner_num = 1;
-            var currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
-            var nextSlide = document.querySelector(".ban_img:nth-child("+ (banner_num+1) +")");
-            var prevSlide = document.querySelector(".ban_img:nth-child("+ (banner_num-1) +")");
-            var slide_num = document.querySelector("#fore_num");
-
-            const Slide = () => {
-                currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
-                nextSlide = document.querySelector(".ban_img:nth-child("+ (banner_num+1) +")");
-                if (currentSlide) {
-                    currentSlide.classList.remove(SHOWING_CLASS);
-                    if (nextSlide) {
-                        nextSlide.classList.add(SHOWING_CLASS);
-                        banner_num += 1;
-                        slide_num.innerHTML = `<span>${banner_num}</span>`;
-                    } else {
-                        banner_num = 1;
-                        slide_num.innerHTML = `<span>${banner_num}</span>`;
-                        firstSlide.classList.add(SHOWING_CLASS);
-                    }
-                } else {
-                    firstSlide.classList.add(SHOWING_CLASS);
-                }
-            };
-            var autoSlide = setInterval(Slide, slide_T);
-
-            function s_next(){
-                currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
-                currentSlide.classList.remove(SHOWING_CLASS);
-                if(banner_num > 3){
-                    banner_num = 1;
-                    slide_num.innerHTML = `<span>${banner_num}</span>`;
-                    document.querySelector(".ban_img:nth-child(1)").classList.add(SHOWING_CLASS);
-                }else{
-                    nextSlide = document.querySelector(".ban_img:nth-child("+ (banner_num+1) +")");
-                    nextSlide.classList.add(SHOWING_CLASS);
-                    banner_num += 1;
-                    slide_num.innerHTML = `<span>${banner_num}</span>`;
-                }
-            }
-            function s_prev(){
-                currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
-                currentSlide.classList.remove(SHOWING_CLASS);
-                if(banner_num < 2){
-                    banner_num = 4;
-                    slide_num.innerHTML = `<span>${banner_num}</span>`;
-                    document.querySelector(".ban_img:nth-child(4)").classList.add(SHOWING_CLASS);
-                }else{
-                    prevSlide = document.querySelector(".ban_img:nth-child("+ (banner_num-1) +")");
-                    prevSlide.classList.add(SHOWING_CLASS);
-                    banner_num -= 1;
-                    slide_num.innerHTML = `<span>${banner_num}</span>`;
-                }
-            }
-
-            var s_playB =  document.getElementById("s_playB");
-            var s_stopB =  document.getElementById("s_stopB");
-            function s_stop(){
-                clearInterval(autoSlide); 
-                s_stopB.style.display="none";
-                s_playB.style.display="inline-block";
-                console.log("stop");
-            }
-            function s_play(){
-                autoSlide = setInterval(Slide, slide_T); 
-                s_playB.style.display="none";
-                s_stopB.style.display="inline-block";
-                console.log("play");
-            }
-        </script>
+        <script src="slider.js"></script>
     
         <div id="content_1">
             <div id="c1_itm1">
