@@ -1,0 +1,95 @@
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.container{
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 50px 1500px 300px;
+    grid-gap: 0;
+    height: 1950px;
+    grid-template-areas: 
+    "head_title head_title"
+    "top_menu top_menu"
+    "content_1 content_1"
+    "footer footer";
+}
+
+#head_title{
+    background-color: white;
+    grid-area: head_title;
+}
+#top_menu{
+    font-weight: 100;
+    background-color: #ff5353;
+    grid-area: top_menu;
+}
+#footer{
+    background-color: #ff5353;
+    grid-area: footer;
+}
+
+#logo{
+    position: relative;
+    top: 20px;
+    padding-left: 20px;
+    width: 100px;
+}
+#search{
+    position: absolute;
+    display: inline-block;
+    transform: translateX(-50%);
+    margin-top: 35px;
+    left: 50%;
+    width: 50%;
+    height: 20px;
+    outline: none;
+    border-style: solid;    
+    border-radius: 10px;
+    border-color: red;
+}
+#register{
+    position: absolute;
+    margin-top: 40px;
+    margin-right: 20px;
+    right: 0;
+}
+
+#m_btn{
+    position: relative;
+    top: 10px;
+    width: 30px;
+    padding-left: 10px;
+}
+#menu_list nav{
+    position: relative;
+    padding-left: 10%;
+    bottom: 25px;
+}
+#menu_list nav a{   
+    text-decoration: none;
+    color: white;
+    transition: .3s;
+}#menu_list nav a:hover{
+    color: #a04747;
+    transition: .3s;
+}
+.m1{position: relative; left: 10%;}
+.m2{position: relative; left: 20%;}
+.m3{position: relative; left: 30%;}
+.m4{position: relative; left: 40%;}
+.m5{position: relative; left: 50%;}
+
+#content_1{
+    grid-area: content_1;
+    font-weight: 100;
+    position: relative;
+    background-color: white;
+    top: 100px;
+}
