@@ -100,3 +100,20 @@ a{
     height: 900px;
     background-color: brown;
 }
+#itm_wrap{
+    position: relative;
+    transform: translateX(-28%);
+    left: 50%;
+}
+#itm_img{
+    display: inline-block;
+    background-color: cornsilk;
+    width: 500px;
+    height: 500px;
+}
+#itm_info{
+    display: inline-block;
+    background-color: cornsilk;
+    width: 500px;
+    height: 500px;
+}
