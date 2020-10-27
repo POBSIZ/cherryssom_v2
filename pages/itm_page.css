@@ -93,3 +93,10 @@ a{
     background-color: white;
     top: 100px;
 }
+
+#BG{
+    margin: 0;
+    padding: 0;
+    height: 900px;
+    background-color: brown;
+}
